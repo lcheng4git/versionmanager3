@@ -1,0 +1,31 @@
+<parameters>
+  <parameter id="publishMaxSpeed" label="Max speed of publish (EPS)" type="number" value="-1" group="performace"/>
+  <parameter id="storageOfRuntimeFiles" label="Storage of runtime uploaded files" type="string" value="${VTBA_HOME}/dfs" group="performace"/>
+  <parameter id="perSampleQuota" label="Max size per a sample file (MB)" type="number" value="1" group="performace"/>
+  <parameter id="perUserQuota" label="Total sample upload size per user (MB)" type="number" value="100" group="performace"/>
+  <parameter id="perXSDQuota" label="Max size per xsd file" type="number" value="0.2" group="performace"/>
+  <parameter id="perXSDZipQuota" label="Max size per xsd zip file" type="number" value="2" group="performace"/>
+  <parameter id="perRuntimeUploadQuota" label="Max file size at one runtime upload (MB)" type="number" value="100" group="performace"/>
+  <parameter id="perRuntimePublishQuota" label="Max file size at once publish (across streams, MB)" type="number" value="100" group="performace"/>
+  <parameter id="orderByLimit" label="Max file size for orderBy (across streams, MB)" type="number" value="5" group="performace"/>
+  <parameter id="publishRESTAPILimit" label="Max payload size at publish REST (MB)" type="number" value="100" group="performace"/>
+  <parameter id="eventCountOfFeedQuery" label="Max event number for the feed query" type="number" value="1000" group="performace"/>
+  <parameter id="analyzeLimit" label="Max record number for the data display" type="number" value="1000" group="performace"/>
+  <parameter id="dimensionOptionLimit" label="Max dimension options for impact analysis" type="number" value="500" group="performace"/>
+  <parameter id="viewNumLimit" label="Max view number for a stream model" type="number" value="10" group="performace"/>
+  <parameter id="feedNumLimitPerView" label="Max feed number for a view" type="number" value="10" group="performace"/>
+  <parameter id="feedPublishBatchSize" label="Batch size of event publishing" type="number" value="200" group="performace"/>
+  <parameter id="eventParserBufferSize" label="Buffer size of event parsing" type="number" value="2000" group="performace"/>
+  <parameter id="supportMultipleSamples" label="Support multiple samples at modeling time" type="boolean" value="false" group="performace"/>
+  <parameter id="feedSetting" label="Feed definition template for views" type="text" value="&lt;feedDefinition kind=&quot;ENTERPRISE&quot; auditLogging=&quot;ON&quot; maxSize=&quot;-1&quot; persistence=&quot;OFF&quot;&gt; &lt;eventSchema&gt;&lt;event content=&quot;variables&quot; name=&quot;Outbound/Event/${VIEW_NAME}&quot; modelRef=&quot;_mr____ESREF&quot;/&gt;&lt;/eventSchema&gt;${TIMESTAMP}&lt;eventArchive type=&quot;COUNT&quot;&gt;&lt;count&gt;2000&lt;/count&gt;&lt;persistentPolicy type=&quot;MEMORY&quot;&gt;&lt;memorySize&gt;0.01&lt;/memorySize&gt;&lt;/persistentPolicy&gt;&lt;/eventArchive&gt;&lt;feedState type=&quot;NONE&quot; snapshot=&quot;false&quot; tablename=&quot;&quot;/&gt;&lt;outboundSource type=&quot;NONE&quot;/&gt;&lt;/feedDefinition&gt;" group="others"/>
+  <parameter id="file.upload.event.enrich" label="Enrich event content for file upload" type="boolean" value="false" group="others"/>
+  <parameter id="user.models.max" label="Max Created Streams" type="number" value="" group="models"/>
+  <parameter id="user.models.running.max" label="Max Run AS" type="number" value="8999999999999997" group="models"/>
+  <parameter id="domain" label="Domain" type="text" value="lcheng.auth0.com" group="auth0"/>
+  <parameter id="client_id" label="Client Id" type="text" value="6ESZfohmaJ8Z5xk5iCBtSh8FgNtn6hRQ" group="auth0"/>
+  <parameter id="client_secret" label="Client Secrect" type="text" value="uHm_coFbLUpv2xprPoJHN27J8JTQhyhXxxI8EJ79Z2_vF15UN0cShdrOIlSU_3DS" group="auth0"/>
+  <parameter id="callback_url" label="Callback URL" type="text" value="http://localhost:8080/vitria-oi/rest/app/as/pub/registry?op=auth0.callback" group="auth0"/>
+  <parameter id="hive_url" label="Hive JDBC URL" type="text" value="" group="parquet"/>
+  <parameter id="hive_username" label="Hive Username" type="text" value="" group="parquet"/>
+  <parameter id="hive_password" label="Hive Password" type="password" value="" group="parquet"/>
+</parameters>
