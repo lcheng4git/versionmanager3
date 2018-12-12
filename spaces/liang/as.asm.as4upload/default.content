@@ -1,5 +1,5 @@
 <ActivityStreamModel description="" name="as4upload" timezone="Asia/Shanghai" daylight="false" live="true">
-  <ModelInfo validated="false">
+  <ModelInfo validated="true">
     <Source>
       <DataSource type="FileSource">
         <property label="File Path" type="string" name="file" desc="The log4j main log file path" value="d:\CQ-SplitCodeDesc.csv"/>
@@ -29,7 +29,7 @@
         <property name="filter-argument" type="string" value=""/>
       </Filter>
     <Samples type="acquire">
-      <Sample name="" label="* Source Definition" payloadId="SOURCE" fileName="vt1544598710342" mimeType="txt">
+      <Sample name="" label="* Source Definition" payloadId="SOURCE" mimeType="txt">
         <Param name="file" label="undefined" value="sample###txt###0" type="file"/>
       </Sample>
     </Samples>
@@ -39,11 +39,16 @@
             <property desc="Specify whether to adjust the Datetime if daylight savings time is in effect" optional="true" label="Daylight savings" type="boolean" name="daylight" hidden="true" value="false"/>
             <property desc="Timezone setting for the Datetime field" optional="true" label="Timezone" type="string" value="Asia/Shanghai" name="timezone" hidden="true"/>
             <property desc="Specify whether to consider the first row as a header." label="Header Row" type="boolean" value="true" name="headerRow"/>
-            <property desc="The delimiter used to split strings into fields." enumDyn="true" enums="comma=Comma Separated,tab=Tab Delimited,," label="Delimiter" type="string" value="comma" name="delimiter"/>
+            <property desc="The delimiter used to split strings into fields." enumDyn="true" enums="comma=Comma Separated,tab=Tab Delimited,,," label="Delimiter" type="string" value="comma" name="delimiter"/>
             <property desc="Optional comma-separated list of field names." optional="true" label="Field Names" type="string" name="fieldNames" constraints="((([a-zA-Z][a-zA-Z0-9_]*)|([a-zA-Z][a-zA-Z0-9_]*:[a-zA-Z]+)),)*((([a-zA-Z][a-zA-Z0-9_]*)|([a-zA-Z][a-zA-Z0-9_]*:[a-zA-Z]+)))?" value="Id,Component,SeverityCode,SeverityDesc,Submitter,PriorityCode,PriorityDesc,TimeStamp,User,State"/>
           </properties>
         </Component>
-        <Mapping type="xsd">
+        <Mapping type="xsd" namespace="http://jim/RulesTest" elementName="Customer">
+          <group id="declare namespace tns=&quot;http://jim/RulesTest&quot;;/tns:Customer" label="/Customer" name="Customer" typeKind="XSDELEMENT" typeNamespace="http://jim/RulesTest" namespace="http://jim/RulesTest" type="CustomerType">
+            <field id="declare namespace tns=&quot;http://jim/RulesTest&quot;;/tns:Customer/CustomerID" label="/Customer/CustomerID" name="CustomerID" value="" typeKind="XSDELEMENT" typeNamespace="http://www.w3.org/2001/XMLSchema" mapping="Submitter" type="string"/>
+            <field id="declare namespace tns=&quot;http://jim/RulesTest&quot;;/tns:Customer/CustomerName" label="/Customer/CustomerName" name="CustomerName" value="" typeKind="XSDELEMENT" typeNamespace="http://www.w3.org/2001/XMLSchema" type="string"/>
+            <field id="declare namespace tns=&quot;http://jim/RulesTest&quot;;/tns:Customer/CustomerType" label="/Customer/CustomerType" name="CustomerType" value="" typeKind="XSDELEMENT" typeNamespace="http://www.w3.org/2001/XMLSchema" type="string"/>
+          </group>
         </Mapping>
       </Parser>
     </Source>
@@ -64,8 +69,17 @@
     <DeletedNamespaces>
     </DeletedNamespaces>
     <UserSchemas>
-      <Schema name="xsd1544598813456" payloadId="xsd1544598813456" type="xsd" encoding="utf-8" file="vtbaadmin-a8c8fab3-2547-4458-8e33-edcd954f9f74_0" filename="AlumniList2.xsd"></Schema>
+      <Schema name="xsd1544598813456" payloadId="xsd1544598813456" type="xsd" encoding="utf-8" filename="AlumniList2.xsd"></Schema>
     </UserSchemas>
+        <View name="Default" desc="">
+        <Rule type="PerEvent"/>
+        <Filters type="expression" relation="AND">
+        </Filters>
+        <Mapping output="xml" type="auto">
+        </Mapping>
+        <Targets>
+        </Targets>
+    </View>
     <DeploymentSetting>
       <ServerTag value=""/>
       <DataSource value="/vitria/m3o/datasource/DefaultDomain/defaultds"/>

@@ -24,7 +24,7 @@
     "com.vitria.as.samples": "=* Source Definition",
     "com.vitria.as.size": "0",
     "live": "true",
-    "modelStatus": "invalid",
+    "modelStatus": "valid",
     "module_deps": "commonevent,file",
     "name": "as4upload",
     "sourceType": "FileSource"
