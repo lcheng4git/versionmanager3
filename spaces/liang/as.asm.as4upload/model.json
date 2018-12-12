@@ -1,0 +1,32 @@
+{
+  "contents": [
+    {
+      "fileref": "ModelContentFile0",
+      "name": "default"
+    },
+    {
+      "classname": "inputstream",
+      "fileref": "ModelContentFile1",
+      "name": "SOURCE"
+    },
+    {
+      "classname": "inputstream",
+      "fileref": "ModelContentFile2",
+      "name": "xsd1544598813456"
+    }
+  ],
+  "owner": "vtbaadmin",
+  "properties": {
+    "_RESOURCE_Description": "",
+    "_RESOURCE_Type": "asm",
+    "__references__": "",
+    "com.vitria.as.references": "#",
+    "com.vitria.as.samples": "=* Source Definition",
+    "com.vitria.as.size": "0",
+    "live": "true",
+    "modelStatus": "invalid",
+    "module_deps": "commonevent,file",
+    "name": "as4upload",
+    "sourceType": "FileSource"
+  }
+}

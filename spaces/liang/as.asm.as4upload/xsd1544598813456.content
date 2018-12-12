@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:al="http://www.vitria.com/xmlns/2003/Alumni" 
+           xmlns:tns="http://www.vitria.com/xmlns/2003/Alumni" 
+	   			 xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           targetNamespace="http://www.vitria.com/xmlns/2003/Alumni"
+           elementFormDefault="qualified">
+  <xs:element name="AlumniList" type="al:AlumniListType"/>
+  <xs:complexType name="AlumniListType">
+    <xs:sequence maxOccurs="unbounded">
+    <xs:element form="qualified" name="Entry" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element form="qualified" type="xs:string" name="District"/>
+          <xs:element form="qualified" type="xs:dateTime" name="timestamp"/>
+          <xs:choice>
+            <xs:element ref="tns:Name"/>
+            <xs:sequence>
+              <xs:element form="qualified" type="xs:string" name="GivenName"/>
+              <xs:element form="qualified" type="xs:string" name="LastName"/>
+            </xs:sequence>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute ref="tns:email" use="optional"/>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Name" type="xs:string"/>
+  <xs:attribute name="email" type="xs:string"/>
+</xs:schema>
